@@ -3,7 +3,6 @@
 
 
 import sys
-from datetime import datetime
 
 
 # supper: None
@@ -21,14 +20,14 @@ class Logger(object):
     # output: None
     # TODO: 定义同时输出在控制台和文件的方法
     def write(self, message):
-        message_output = '{}: {}'.format(datetime.now(), message)
-        self.terminal.write(message_output)
-        self.log.write(message_output)
+        self.terminal.write(message)
+        self.log.write(message)
 
     # input: None
     # output: None
     # TODO: Logger关闭时自动调用，关闭文件流
     def flush(self):
-        self.log.close()
+        # self.log.close()
+        pass
 
 # sys.stdout = Logger('douban_log.txt')
