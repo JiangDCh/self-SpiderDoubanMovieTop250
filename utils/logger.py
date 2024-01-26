@@ -20,7 +20,7 @@ class Logger(object):
     # output: None
     # TODO: 定义同时输出在控制台和文件的方法
     def write(self, message):
-        self.terminal.write(message)
+        # self.terminal.write(message)
         self.log.write(message)
 
     # input: None
