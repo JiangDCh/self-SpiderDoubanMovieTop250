@@ -12,16 +12,20 @@ class Logger(object):
     # input: String
     # output: None
     # TODO: 定义初始化类的方法
-    def __init__(self, filename='Default.log'):
+    def __init__(self, filename='Default.log', display=False):
         self.terminal = sys.stdout
         self.log = open(filename, mode='a', encoding='utf-8')
+        self.display = display
 
     # input: String
     # output: None
     # TODO: 定义同时输出在控制台和文件的方法
     def write(self, message):
-        # self.terminal.write(message)
-        self.log.write(message)
+        if self.display:
+            self.terminal.write(message)
+            self.log.write(message)
+        else:
+            self.log.write(message)
 
     # input: None
     # output: None
