@@ -28,9 +28,9 @@ class Downloader(object):
     # input: String
     # output: String
     # TODO: 通过requests获取网页的HTML
-    def get_html_by_requests(self, url):
+    def get_html_by_requests(self, url, timeout=5):
         try:
-            response = requests.get(url, headers=random.choice(self.headers), timeout=5)
+            response = requests.get(url, headers=random.choice(self.headers), timeout=timeout)
             response.raise_for_status()
             response.encoding = response.apparent_encoding
             print(str(datetime.now()) + ': ' + '目标网页{}获取成功。'.format(url))
@@ -49,10 +49,10 @@ class Downloader(object):
     # input: String
     # output: String
     # TODO: 通过urllib获取网页的HTML
-    def get_html_by_urllib(self, url):
+    def get_html_by_urllib(self, url, timeout=5):
         try:
             request = urllib.request.Request(url, headers=random.choice(self.headers))
-            response = urllib.request.urlopen(request, timeout=5)
+            response = urllib.request.urlopen(request, timeout=timeout)
             print(str(datetime.now()) + ': ' + '目标网页{}获取成功。'.format(url))
             return response.read().decode('utf-8')
         except ValueError:
